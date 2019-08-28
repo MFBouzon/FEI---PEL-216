@@ -1,0 +1,43 @@
+@startuml EX04UML
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 1
+
+Function <|-- A
+Function <|-- B
+
+class Function
+{
+	double x0
+	double beta
+	double epsilon
+
+	void setX0(double)
+	void setBeta(double)
+	void setEpsilon(double)
+	double getX0()
+	double getBeta()
+	double getEpsilon(double)
+	double Newton_Raphson()
+	double GradientDescent()
+	{abstract} double Solve()
+	{abstract} double solveDerivative()
+
+}
+
+class A
+{
+	double Solve()
+	double solveDerivative()
+}
+
+class B
+{
+	double Solve()
+	double solveDerivative()
+}
+
+@enduml

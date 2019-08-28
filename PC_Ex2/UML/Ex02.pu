@@ -1,0 +1,96 @@
+@startuml teste
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 1
+
+linkedList *-- Node
+doublyLinkedList *--Node
+linkedList <|-- doublyLinkedList
+linkedList <|-- stackLinked
+linkedList <|-- queueLinked
+doublyLinkedList <|-- stackDoubleLinked
+doublyLinkedList <|-- queueDoubleLinked
+
+class Node
+{
+		char value
+		Node next
+		Node prev
+
+
+		void setValue(char)
+		void setNext(Node)
+		void setPrev(Node)
+		char getValue()
+		Node getNext()
+		Node getPrev()
+
+}
+
+
+class linkedList
+{
+	
+		Node first
+		int size
+	
+		void insertBegin(char)
+		void insertEnd(char)
+		char removeBegin()
+		char removeEnd()
+		void print()
+		Node search(char)
+		void setSize(int)
+		void setFirst(Node)
+		int getSize()
+		bool isEmpty()
+		Node getFirst()
+}
+
+class doublyLinkedList
+{
+	Node last
+
+	void insertBegin(char)
+	void insertEnd(char)
+	char removeBegin()
+	char removeEnd()
+	void setLast(Node N)
+	Node getLast()
+}
+
+
+class stackLinked
+{
+		void Push(char)
+		char Pop()
+ 		Node Top()
+}
+
+class queueLinked
+{
+		void Enqueue(char)
+		char Dequeue()
+		Node Front()
+}
+
+class stackDoubleLinked
+{
+		void Push(char)
+		char Pop()
+		Node Top()
+}
+
+class queueDoubleLinked
+{
+		queueDoubleLinked()
+		void Enqueue(char element)
+		char Dequeue()
+		Node Front()
+}
+
+
+@enduml

@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\murillo\mestrado\disciplinas\programação científica\pc_ex1\pc_ex1\main.cpp(51): warning C4473: 'printf' : não há argumentos suficientes transmitidos para a cadeia de caracteres de formato
+  c:\users\murillo\mestrado\disciplinas\programação científica\pc_ex1\pc_ex1\main.cpp(51): note: espaços reservados e seus parâmetros esperam 1 argumentos variadic, mas 0 foram fornecidos
+  c:\users\murillo\mestrado\disciplinas\programação científica\pc_ex1\pc_ex1\main.cpp(51): note: o argumento variadic 1 ausente é requerido pela cadeia de formato '%c'
+  PC_Ex1.vcxproj -> C:\Users\Murillo\Mestrado\Disciplinas\Programação Científica\PC_Ex1\x64\Debug\PC_Ex1.exe

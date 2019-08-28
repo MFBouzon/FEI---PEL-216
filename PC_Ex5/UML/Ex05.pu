@@ -1,0 +1,55 @@
+@startuml EX05UML
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 1
+
+Function <|-- Function_A
+Function <|-- Function_B
+Function <|-- Function_C
+
+class Function
+{
+	double a
+	double b
+
+	
+	{abstract} double f(double)
+	double derivativeNthOrder(double x, int n)
+	double Midpoint(int)
+	double Trapezoidal(int)
+	double Simpson(int)
+	double MidpointError(int)
+	double TrapezoidalError(int)
+	double SimpsonError(int)
+	int adaptiveMidpoint(double)
+	int adaptiveTrapezoidal(double)
+	int adaptiveSimpson(double)
+
+}
+
+
+class Function_A
+{
+
+	double f(double)
+
+}
+
+class Function_B
+{
+
+	double f(double)
+
+}
+
+class Function_C
+{
+
+	double f(double)
+
+}
+
+@enduml

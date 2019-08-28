@@ -1,0 +1,25 @@
+@startuml teste
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 3
+
+class Queue
+{
+
+	- head : int
+	- tail : int
+	- length : int
+	- Q[] : char
+
+	+ Enqueue(char) : bool
+	+ Dequeue() : char
+	+ Front() : char
+ 	
+}
+
+
+
+@enduml

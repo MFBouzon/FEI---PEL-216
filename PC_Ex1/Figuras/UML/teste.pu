@@ -1,0 +1,20 @@
+@startuml teste
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 3
+
+class Stack
+{
+	- top : int 
+	- S[ ]: char
+
+    + Push(char) : bool 
+	+ Pop() : char
+ 	+ Empty() : bool
+	+ Top() : char
+}
+
+@enduml

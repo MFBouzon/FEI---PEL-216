@@ -1,0 +1,178 @@
+@startuml EX03UML
+
+skinparam classAttributeIconSize 0
+skinparam Monochrome true
+hide circle
+
+scale 1
+
+class "Node<Puzzle>" as Node
+class "doublyList<Puzzle>" as doublyList
+class "Stack<Puzzle>" as Stack
+class "Queue<Puzzle>" as Queue
+class "Heap<Puzzle>" as Heap
+
+Node  *-- Puzzle 
+doublyList *--Node
+doublyList <|-- Stack
+doublyList <|-- Queue
+puzzleSolver *--  Node
+puzzleSolver *-- doublyList
+puzzleSolver <|-- solverBFS
+Queue *-- solverBFS
+puzzleSolver <|-- solverDFS
+Stack *-- solverDFS
+puzzleSolver <|-- solverHillClimb
+Heap *-- Node
+solverAStar *-- Heap
+puzzleSolver <|-- solverAStar
+
+
+class Node
+{
+	Puzzle data
+	Node<Puzzle> nextLeft
+	Node<Puzzle> nextRight
+	Node<Puzzle> prev
+
+	
+	void setData(Puzzle)
+	void setNextLeft(Node<Puzzle>)
+	void setNextRight(Node<Puzzle>)
+	void setPrev(Node<Puzzle>)
+	Puzzle getData()
+	Node<Puzzle> getNextLeft()
+	Node<Puzzle> getNextRight()
+	Node<Puzzle> getPrev()
+
+
+}
+
+
+class Puzzle
+{
+	int pieces[3][3]
+	int totalCost
+	int dist
+	int heuristic
+	int emptyIndR
+	int emptyIndC
+	bool solvable
+
+	
+	int calculateHeuristic()
+	bool checkSolvable()
+	int getHeuristic()
+	int getDist()
+	int getTotalCost()
+	bool getSolvable()
+	bool moveUp()
+	bool moveDown()
+	bool moveLeft()
+	bool moveRight()
+	bool isSolved()
+
+}
+
+class doublyList
+{
+	int size
+	Node<Puzzle> first
+	Node<Puzzle> last
+
+	void insertBegin(Puzzle)
+	void insertEnd(Puzzle)
+	Puzzle removeBegin()
+	Puzzle removeEnd()
+	void print()
+	Node<Puzzle> search(Puzzle)
+	bool Empty()
+	void setSize(int)
+	void setFirst(Node<Puzzle>)
+	void setLast(Node<Puzzle>)
+	int getSize()
+	Node<Puzzle> getFirst()
+	Node<Puzzle> getLast()
+}
+
+
+
+class Stack
+{
+		void Push(Puzzle)
+		char Pop()
+		Node Top()
+}
+
+class Queue
+{
+		void Enqueue(Puzzle)
+		char Dequeue()
+		Node Front()
+}
+
+class Heap
+{
+	Node<Node<Puzzle> > root
+	Node<Node<Puzzle> > last
+	int size
+
+	int getSize()
+	void Push(Node<Puzzle>)
+	void Push(Puzzle)
+	Node<Puzzle> Pop()
+	bool Empty()
+	void Heapify(Node<Node<Puzzle> >)
+
+}
+
+
+class puzzleSolver
+{
+	Node<Puzzle> start
+	Node<Puzzle> result
+	doublyList<Puzzle> seen
+
+	void getResultPath(doublyList<Puzzle>)
+	void printResult()
+	{abstract} bool Solve()
+	{abstract} void movePieces()
+
+}
+
+class solverBFS
+{
+	Queue <Node<Puzzle> > Q
+
+	void movePieces(Node<Puzzle>)
+	bool Solve()
+	 
+}
+
+class solverDFS
+{
+	Stack <Node<Puzzle> > Q
+
+	void movePieces(Node<Puzzle>)
+	bool Solve()
+	 
+}
+
+class solverHillClimb
+{
+
+	void movePieces(Node<Puzzle>)
+	bool Solve()
+	 
+}
+
+class solverAStar
+{
+	Heap<Puzzle> H
+
+	void movePieces(Node<Puzzle>)
+	bool Solve()
+
+}
+
+@enduml
