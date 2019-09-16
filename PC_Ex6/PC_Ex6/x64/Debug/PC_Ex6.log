@@ -1,0 +1,3 @@
+﻿  main.cpp
+c:\users\murillo\mestrado\disciplinas\programação científica\fei---pel-216\pc_ex6\pc_ex6\main.cpp(32): warning C4244: 'inicializando': conversão de '__int64' para 'double', possível perda de dados
+  PC_Ex6.vcxproj -> C:\Users\Murillo\Mestrado\Disciplinas\Programação Científica\FEI---PEL-216\PC_Ex6\x64\Debug\PC_Ex6.exe
