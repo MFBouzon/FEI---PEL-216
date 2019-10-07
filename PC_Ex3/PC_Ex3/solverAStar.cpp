@@ -43,6 +43,15 @@ bool solverAStar::Solve()
 //Recebe um ponteiro para o nó que armazena o puzzle que será movimentado
 void solverAStar::movePieces(Node<Puzzle>* P)
 {
+
+	//se for possível movimentar a peça acima do espaço vazio e esse estado ainda não foi encontrado, ele é inserido
+	Puzzle U = P->getData();
+	if (U.moveUp() && seen.search(U) == nullptr) {
+		seen.insertEnd(U);
+		Node<Puzzle> *newNode = new Node<Puzzle>(U, nullptr, nullptr, P);
+		H.Push(newNode);
+	}
+
 	//se for possível movimentar a peça abaixo do espaço vazio e esse estado ainda não foi encontrado, ele é inserido
 	Puzzle D = P->getData();
 	if (D.moveDown() && seen.search(D) == nullptr) {
@@ -51,11 +60,12 @@ void solverAStar::movePieces(Node<Puzzle>* P)
 		H.Push(newNode);
 	}
 
-	//se for possível movimentar a peça acima do espaço vazio e esse estado ainda não foi encontrado, ele é inserido
-	Puzzle U = P->getData();
-	if (U.moveUp() && seen.search(U) == nullptr) {
-		seen.insertEnd(U);
-		Node<Puzzle> *newNode = new Node<Puzzle>(U, nullptr, nullptr, P);
+
+	//se for possível movimentar a peça a direita do espaço vazio e esse estado ainda não foi encontrado, ele é inserido
+	Puzzle R = P->getData();
+	if (R.moveRight() && seen.search(R) == nullptr) {
+		seen.insertEnd(R);
+		Node<Puzzle> *newNode = new Node<Puzzle>(R, nullptr, nullptr, P);
 		H.Push(newNode);
 	}
 
@@ -67,13 +77,6 @@ void solverAStar::movePieces(Node<Puzzle>* P)
 		H.Push(newNode);
 	}
 
-	//se for possível movimentar a peça a direita do espaço vazio e esse estado ainda não foi encontrado, ele é inserido
-	Puzzle R = P->getData();
-	if (R.moveRight() && seen.search(R) == nullptr) {
-		seen.insertEnd(R);
-		Node<Puzzle> *newNode = new Node<Puzzle>(R, nullptr, nullptr, P);
-		H.Push(newNode);
-	}
 }
 
 //destrutor padrão
